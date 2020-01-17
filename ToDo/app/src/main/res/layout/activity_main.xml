@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         android:text="Add TODO" />
 
-        <androidx.recyclerview.widgit.RecyclerView
-            android:id="@+id/rv_todo_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_todo_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
