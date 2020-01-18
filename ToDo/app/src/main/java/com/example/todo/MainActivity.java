@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         mTodoListRV.setAdapter(mTodoAdapter);
 
+        mTodoAdapter.addTodo("Fight the guy who lives down by the river at 6.");
+
         Button addTodoButton = findViewById(R.id.btn_ad_todo);
         addTodoButton.setOnClickListener(new View.OnClickListener() {
             @Override
