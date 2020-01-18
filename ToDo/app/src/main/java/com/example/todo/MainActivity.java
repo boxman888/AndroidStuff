@@ -19,36 +19,35 @@ import java.util.ArrayDeque;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView mTodoListRecyclerView;
-    private EditText mTodoEntryEditText;
+    private RecyclerView mTodoListRV;
+    private EditText mTodoEntryET;
     private TodoAdapter mTodoAdapter;
-    private ArrayDeque<String> mTodoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTodoListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mTodoListRecyclerView.setHasFixedSize(true);
-
-        mTodoEntryEditText = (EditText)findViewById(R.id.et_todo_entry_box);
+        mTodoListRV = findViewById(R.id.rv_todo_list);
+        mTodoEntryET = findViewById(R.id.et_todo_entry_box);
 
         mTodoAdapter = new TodoAdapter();
-        mTodoListRecyclerView.setAdapter(mTodoAdapter);
 
-        Button addTodoButton = (Button)findViewById(R.id.btn_ad_todo);
+        mTodoListRV.setLayoutManager(new LinearLayoutManager(this));
+        mTodoListRV.setHasFixedSize(true);
+
+        mTodoListRV.setAdapter(mTodoAdapter);
+
+        Button addTodoButton = findViewById(R.id.btn_ad_todo);
         addTodoButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String todoText =
-                        mTodoEntryEditText.getText().toString();
+            public void onClick(View view) {
+                String todoText = mTodoEntryET.getText().toString();
                 if (!TextUtils.isEmpty(todoText)) {
                     mTodoAdapter.addTodo(todoText);
-                    mTodoEntryEditText.setText("");
+                    mTodoEntryET.setText("");
                 }
             }
         });
     }
-
 }
