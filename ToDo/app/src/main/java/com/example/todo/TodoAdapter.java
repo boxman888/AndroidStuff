@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,8 +19,9 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
     }
 
     public void addTodo(String todo) {
-        mTodoList.add(todo);
-        notifyDataSetChanged();
+        mTodoList.add(0, todo);
+        notifyItemInserted(0);
+        //notifyDataSetChanged();
     }
 
     @Override
@@ -36,8 +38,9 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TodoViewHolder todoViewHolder, int i) {
-        String todo = mTodoList.get(mTodoList.size() - i - 1);
+    public void onBindViewHolder(@NonNull TodoViewHolder todoViewHolder, int position) {
+        //String todo = mTodoList.get(mTodoList.size() - i - 1);
+        String todo = mTodoList.get(position);
         todoViewHolder.bind(todo);
     }
 

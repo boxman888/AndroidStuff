@@ -11,11 +11,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 
 import android.os.Bundle;
-
-import java.util.ArrayDeque;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         mTodoListRV.setLayoutManager(new LinearLayoutManager(this));
         mTodoListRV.setHasFixedSize(true);
-
+        mTodoListRV.setItemAnimator(new DefaultItemAnimator());
         mTodoListRV.setAdapter(mTodoAdapter);
 
         mTodoAdapter.addTodo("Fight the guy who lives down by the river at 6.");
@@ -46,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String todoText = mTodoEntryET.getText().toString();
                 if (!TextUtils.isEmpty(todoText)) {
+                    mTodoListRV.scrollToPosition(0);
                     mTodoAdapter.addTodo(todoText);
+                    Toast.makeText(MainActivity.this, "wow", Toast.LENGTH_SHORT).show();
                     mTodoEntryET.setText("");
                 }
             }
