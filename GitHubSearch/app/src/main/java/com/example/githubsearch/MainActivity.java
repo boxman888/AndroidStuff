@@ -12,6 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.android.githubsearch.R;
+import com.example.githubsearch.utils.GitHubUtils;
+import com.example.githubsearch.utils.NetworkUtils;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;

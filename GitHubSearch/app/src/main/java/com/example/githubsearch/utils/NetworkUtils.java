@@ -1,4 +1,4 @@
-package com.example.githubsearch;
+package com.example.githubsearch.utils;
 
 import java.io.IOException;
 
